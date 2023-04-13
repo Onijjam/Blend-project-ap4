@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin');
 module.exports = {
   content: [
     "./index.html",
@@ -30,5 +31,16 @@ module.exports = {
         myShadow2: "-4.1px -5px 0 0 rgb(17,24,39)",
       },},
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.bg-conic-gradient': {
+          "--mask":
+              'conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) 50%/60.00px 100%',
+          WebkitMask: "var(--mask)",
+        },
+      };
+      addUtilities(newUtilities);
+    }),
+  ],
 }
