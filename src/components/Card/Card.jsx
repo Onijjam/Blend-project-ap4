@@ -1,9 +1,10 @@
+import {Link} from "react-router-dom";
 
 export default function Card(props) {
     let drink = props.data
 
     return (
-        <div className="w-full">
+        <Link to={`/details/${drink.idDrink}`} className="w-full">
             <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg">
                 <img className="w-full" src={drink.strDrinkThumb} alt="Sunset in the mountains" />
                     <div className="flex justify-evenly items-center pt-1 pb-2">
@@ -30,6 +31,6 @@ export default function Card(props) {
                             className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold font-body text-gray-700 mr-2 mb-2">{drink.strCategory}</span>
                     </div>
             </div>
-        </div>
+        </Link>
     );
 }

@@ -9,8 +9,8 @@ export default function Navbar() {
 
     const Menus = [
         { name: "Menu", icon: faHouse, dis: "translate-x-0", color: "bg-pacific-cyan", path: "/menu" },
-        { name: "Recherche", icon: faMagnifyingGlass, dis: "translate-x-16", color: "bg-cinnabar", path: "/search" },
-        { name: "Profile", icon: faUser, dis: "translate-x-32", color: "bg-forest-green", path: "/login" },
+        { name: "Search", icon: faMagnifyingGlass, dis: "translate-x-16", color: "bg-cinnabar", path: "/search" },
+        { name: "Login", icon: faUser, dis: "translate-x-32", color: "bg-forest-green", path: "/login" },
     ];
 
     const [active, setActive] = useState(-1);
@@ -44,7 +44,7 @@ export default function Navbar() {
                 {Menus.map((menu, i) => (
                     <li key={i} className="w-16">
                         <Link
-                            to={menu.path}
+                            to={i === active ? "/" : menu.path}
                             className="flex flex-col text-center pt-6"
                             onClick={() => handleClick(i)}
                         >

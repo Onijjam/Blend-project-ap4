@@ -5,7 +5,7 @@ import data_ing from "../in/data_ing.json"
 import Slider from "../components/Slider/Slider.jsx";
 export default function Home() {
     return (
-        <div className="flex flex-col items-center p-5 overflow-x-hidden">
+        <div className="flex flex-col items-center mt-10 overflow-x-hidden">
             <img src={Logo} className="shadow-lg shadow-pacific-cyan rounded-full w-32"/>
             <div className="p-10 flex flex-col items-center">
                 <h1 className="font-title text-white font-bold text-2xl">Popular Cocktails</h1>
