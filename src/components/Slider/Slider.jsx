@@ -17,7 +17,7 @@ export default function Slider({ data, cardType = "card" }) {
                     <CardCollection data={item} />
                 </SwiperSlide>
             );
-        } else if (cardType === "ingredient") { // Ajoutez le cas "ingredient"
+        } else if (cardType === "ingredient") {
             return (
                 <SwiperSlide key={index} className="!flex items-center inline-flex justify-center !w-48">
                     <CardIngredient data={item} />
@@ -46,7 +46,7 @@ export default function Slider({ data, cardType = "card" }) {
                 modifier: 1,
                 slideShadows: false,
             }}
-            className="w-1/2 max-h-96 mt-5 mb-5"
+            className="w-3/5 max-h-96 mt-5 mb-5"
             initialSlide={1}
         >
             {(cardType === "ingredient" ? data.ingredients : data.drinks).map((item, index) => renderCard(item, index))}

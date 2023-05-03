@@ -71,7 +71,7 @@ export default function Search() {
             <hr className="w-4/5 mt-8 border-t border-white" />
             <div className="mt-8 gap-4 flex flex-col items-center">
                 {isLoading ? (
-                    <div className="text-white font-title text-lg">Chargement...</div>
+                    <div className="text-white font-title text-lg">Loading...</div>
                 ) : (!cocktailsByName.drinks || cocktailsByName.drinks.length === 0) && (!cocktailsByIngredient.drinks || cocktailsByIngredient.drinks.length === 0) ? (
                     <>
                         <h2
@@ -95,24 +95,32 @@ export default function Search() {
                     </>
                 ) : (
                     <>
-                        {cocktailsByName.drinks && cocktailsByName.drinks.length > 1 && (
+                        {cocktailsByName.drinks && cocktailsByName.drinks.length > 0 && (
                             <>
                                 <h2 className="font-title text-white font-bold text-2xl">Results by name:</h2>
-                                <Slider data={cocktailsByName} />
-                            </>
-                        )}
-                        {cocktailsByName.drinks && cocktailsByName.drinks.length === 1 && (
-                            <>
-                                <h2 className="font-title text-white font-bold text-2xl">Result by name:</h2>
-                                <div className="!flex items-center inline-flex justify-center !w-48">
-                                    <Card data={cocktailsByName.drinks[0]} />
-                                </div>
+                                {cocktailsByName.drinks.length > 2 ? (
+                                    <Slider data={cocktailsByName} />
+                                ) : (
+                                    <div className="flex flex-col justify-center gap-4">
+                                        {cocktailsByName.drinks.map((drink) => (
+                                            <Card key={drink.idDrink} data={drink} />
+                                        ))}
+                                    </div>
+                                )}
                             </>
                         )}
                         {cocktailsByIngredient.drinks && cocktailsByIngredient.drinks.length > 0 && (
                             <>
                                 <h2 className="font-title text-white font-bold text-2xl">Results by ingredient:</h2>
-                                <Slider data={cocktailsByIngredient} />
+                                {cocktailsByIngredient.drinks.length > 2 ? (
+                                    <Slider data={cocktailsByIngredient} />
+                                ) : (
+                                    <div className="flex flex-col justify-center gap-4">
+                                        {cocktailsByIngredient.drinks.map((drink) => (
+                                            <Card key={drink.idDrink} data={drink} />
+                                        ))}
+                                    </div>
+                                )}
                             </>
                         )}
                     </>
