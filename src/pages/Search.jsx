@@ -59,7 +59,7 @@ export default function Search() {
                     <img src={Logo} alt="logo Blend" className="shadow-lg shadow-cinnabar rounded-full w-32 mt-10" />
                 </Link>
             </header>
-            <form onSubmit={handleSearch} className="mt-10 w-full max-w-md flex justify-center flex-col">
+            <form onSubmit={handleSearch} className="mt-10 w-full max-w-md flex justify-center flex-col items-center">
                 <label htmlFor="search-input" className="text-white font-title text-xl">
                     <h1>Search</h1>
                 </label>
