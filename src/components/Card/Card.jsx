@@ -6,7 +6,7 @@ export default function Card(props) {
     return (
         <Link to={`/details/${drink.idDrink}`} className="w-full">
             <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg">
-                <img className="w-full" src={drink.strDrinkThumb} alt="Sunset in the mountains" />
+                <img className="w-full" src={drink.strDrinkThumb} alt={`Image ${drink.idDrink}`} />
                     <div className="flex justify-evenly items-center pt-1 pb-2">
                         <div className="font-bold font-title text-xl mb-1">{drink.strDrink}</div>
                         <span

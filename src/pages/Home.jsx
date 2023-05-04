@@ -29,6 +29,7 @@ export default function Home() {
         <div className="flex flex-col items-center mt-10 overflow-x-hidden">
             <img
                 src={Logo}
+                alt="Logo Blend"
                 className="shadow-lg shadow-pacific-cyan rounded-full w-32"
             />
             <div className="p-10 flex flex-col items-center">

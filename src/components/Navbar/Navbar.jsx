@@ -24,7 +24,7 @@ export default function Navbar() {
     }
 
     return (
-        <div className="w-full bg-white max-h-[4.4rem] px-6 rounded-t-xl flex justify-center">
+        <div className="w-full bg-white max-h-[4.4rem] px-6 rounded-t-xl flex justify-center laptop:w-auto laptop:mb-5 laptop:rounded-2xl">
             <ul className="flex relative">
                 {active !== -1 && (
                     <span

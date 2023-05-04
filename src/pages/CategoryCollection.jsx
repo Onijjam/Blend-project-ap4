@@ -4,11 +4,13 @@ import Card from "../components/Card/Card.jsx";
 
 export function CategoryCollection(){
 	const [cocktails, setCocktails] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
 	const category = useParams();
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		async function fetchCocktailsByCategory() {
+			setIsLoading(true);
 			try {
 				const response = await fetch(
 					`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category.nameCategory.replace('-', '/')}`,
@@ -22,6 +24,7 @@ export function CategoryCollection(){
 			} catch (error) {
 				setCocktails([]);
 			}
+			setIsLoading(false);
 		}
 		fetchCocktailsByCategory();
 	}, [category]);
@@ -35,11 +38,13 @@ export function CategoryCollection(){
 				>
 					&larr;
 				</button>
-				<h2 className="text-white font-title text-xl">{category.nameCategory.replace('-', '/')}</h2>
+				<h1 className="text-white font-title text-xl">{category.nameCategory.replace('-', '/')}</h1>
 				<div className="mr-4"></div>
 			</div>
 			<div className="mt-8 gap-4 flex flex-col items-center">
-				{cocktails.length === 0 ? (
+				{isLoading ? (
+					<div className="text-white font-title text-lg">Loading...</div>
+				) : cocktails.length === 0 ? (
 					<div className="text-white font-title text-lg">No results found</div>
 				) : (
 					cocktails.map((cocktail) => (

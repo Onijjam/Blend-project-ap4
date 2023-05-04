@@ -7,7 +7,7 @@ export default function CardIngredient(props) {
             <img
                 className="w-24 h-24 object-cover rounded-full mb-2"
                 src={ingredient.strImage}
-                alt={ingredient.strIngredient}
+                alt={`Image ${ingredient.strIngredient}`}
             />
             <p className="text-center font-title font-bold text-sm text-white">{ingredient.strIngredient}</p>
         </Link>

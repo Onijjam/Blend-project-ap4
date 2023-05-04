@@ -11,7 +11,7 @@ export default function Menu() {
         <div className="min-h-screen bg-raisin-black text-white flex flex-col items-center">
             <header className="bg-raisin-black mt10">
                 <Link to="/">
-                    <img src={Logo} alt="logo" className="shadow-lg shadow-pacific-cyan rounded-full w-32 mt-10" />
+                    <img src={Logo} alt="logo Blend" className="shadow-lg shadow-pacific-cyan rounded-full w-32 mt-10" />
                 </Link>
             </header>
 
@@ -23,7 +23,7 @@ export default function Menu() {
                                 to={titleItem.path}
                                 className="text-white underline"
                             >
-                                {titleItem.title}
+                                <h1>{titleItem.title}</h1>
                             </Link>
                         </li>
                     ))}

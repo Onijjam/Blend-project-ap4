@@ -4,11 +4,13 @@ import Card from "../components/Card/Card.jsx";
 
 export function IngredientCollections(){
 	const [cocktails, setCocktails] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
 	const ingredient = useParams();
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		async function fetchCocktailsByIngredient() {
+			setIsLoading(true);
 			try {
 				const response = await fetch(
 					`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient.nameIngredient}`,
@@ -22,6 +24,7 @@ export function IngredientCollections(){
 			} catch (error) {
 				setCocktails([]);
 			}
+			setIsLoading(false);
 		}
 		fetchCocktailsByIngredient();
 	}, [ingredient]);
@@ -35,11 +38,13 @@ export function IngredientCollections(){
 				>
 					&larr;
 				</button>
-				<h2 className="text-white font-title text-xl">{ingredient.nameIngredient}</h2>
+				<h1 className="text-white font-title text-xl">{ingredient.nameIngredient}</h1>
 				<div className="mr-4"></div>
 			</div>
 			<div className="mt-8 gap-4 flex flex-col items-center">
-				{cocktails.length === 0 ? (
+				{isLoading ? (
+					<div className="text-white font-title text-lg">Loading...</div>
+				) : cocktails.length === 0 ? (
 					<div className="text-white font-title text-lg">No results found</div>
 				) : (
 					cocktails.map((cocktail) => (

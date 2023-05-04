@@ -4,13 +4,13 @@ import {Link} from "react-router-dom";
 export default function Login() {
     return (
         <div className="flex flex-col items-center mt-10 bg-raisin-black min-h-screen">
-            <Link to="/" className="w-32 h-32 shadow-lg shadow-forest-green bg-raisin-black rounded-full flex items-center justify-center">
+            <div className="w-32 h-32 shadow-lg shadow-forest-green bg-raisin-black rounded-full flex items-center justify-center">
                 <FontAwesomeIcon icon={faUser} size="3x" className="text-white" />
-            </Link>
+            </div>
             <form className="mt-10 w-full max-w-md flex flex-col items-center justify-center">
                 <div className="mb-6">
                     <label htmlFor="email" className="block text-white font-title">
-                        Email
+                        <h1>Email</h1>
                     </label>
                     <input
                         id="email"
@@ -21,7 +21,7 @@ export default function Login() {
                 </div>
                 <div className="mb-6">
                     <label htmlFor="password" className="block text-white font-title">
-                        Password
+                        <h1>Password</h1>
                     </label>
                     <input
                         id="password"

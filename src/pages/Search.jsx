@@ -56,14 +56,18 @@ export default function Search() {
         <div className="flex flex-col items-center bg-raisin-black min-h-screen overflow-x-hidden">
             <header className="bg-raisin-black mt10">
                 <Link to="/">
-                    <img src={Logo} alt="logo" className="shadow-lg shadow-cinnabar rounded-full w-32 mt-10" />
+                    <img src={Logo} alt="logo Blend" className="shadow-lg shadow-cinnabar rounded-full w-32 mt-10" />
                 </Link>
             </header>
-            <form onSubmit={handleSearch} className="mt-10 w-full max-w-md flex justify-center">
+            <form onSubmit={handleSearch} className="mt-10 w-full max-w-md flex justify-center flex-col">
+                <label htmlFor="search-input" className="text-white font-title text-xl">
+                    <h1>Search</h1>
+                </label>
                 <input
+                    id="search-input"
                     className="w-64 h-12 px-4 text-xl font-title text-gray-600 bg-white rounded focus:outline-none"
                     type="text"
-                    placeholder="Search"
+                    placeholder="Type here"
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
                 />

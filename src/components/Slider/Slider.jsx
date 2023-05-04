@@ -47,7 +47,7 @@ export default function Slider({ data, cardType = "card" }) {
                 slideShadows: false,
             }}
             className="w-3/5 max-h-96 mt-5 mb-5"
-            initialSlide={1}
+            initialSlide={2}
         >
             {(cardType === "ingredient" ? data.ingredients : data.drinks).map((item, index) => renderCard(item, index))}
         </Swiper>
